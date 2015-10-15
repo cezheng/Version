@@ -225,6 +225,7 @@ extension NSBundle {
 extension NSProcessInfo {
     /// The version of the operating system on which the process is executing.
     @available(iOS, introduced=8.0)
+    @available(OSX, introduced=10.10)
     public var operationSystemVersion: Version {
         let version : NSOperatingSystemVersion = self.operatingSystemVersion
         return Version(
