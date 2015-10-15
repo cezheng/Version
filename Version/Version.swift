@@ -161,13 +161,13 @@ extension Version : Hashable {
 
 extension Version : CustomStringConvertible {
     public var description: String {
-        return "".join([
+        return [
             "\(major)",
             minor      != nil ? ".\(minor!)"      : "",
             patch      != nil ? ".\(patch!)"      : "",
             prerelease != nil ? "-\(prerelease!)" : "",
             build      != nil ? "+\(build!)"      : ""
-        ])
+        ].joinWithSeparator("")
     }
 }
 
