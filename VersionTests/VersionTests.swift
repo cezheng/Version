@@ -8,6 +8,7 @@
 
 import Version
 import XCTest
+
 #if os(iOS)
     import UIKit
 #endif
@@ -53,8 +54,8 @@ class VersionTests: XCTestCase {
     }
     
     func testComparableForIgnoredBuild() {
-        let a = Version("1.0.0-alpha+buildA")
-        let b = Version("1.0.0-alpha+buildB")
+        let a = Version("1.0.0-alpha+buildA")!
+        let b = Version("1.0.0-alpha+buildB")!
         XCTAssertTrue(a == b)
         XCTAssertTrue(a <= b)
         XCTAssertTrue(a >= b)
@@ -64,24 +65,24 @@ class VersionTests: XCTestCase {
     
     func testComparable() {
         let versions = [
-            Version("1.0.0-alpha"),
-            Version("1.0.0-alpha+B001"),
-            Version("1.0.0"),
-            Version("1.0.0+B001"),
-            Version("1.0.3-alpha"),
-            Version("1.0.3-alpha+B001"),
-            Version("1.0.3"),
-            Version("1.0.3+B001"),
-            Version("1.2.0-alpha"),
-            Version("1.2.0-alpha+B001"),
-            Version("1.2.0+B001"),
-            Version("1.2.0"),
-            Version("1.2.3-alpha"),
-            Version("1.2.3-alpha+B001"),
-            Version("1.2.3"),
-            Version("1.2.3+B001")
-        ].map { $0! }
-        for (index, less) in versions.enumerate() {
+            "1.0.0-alpha",
+            "1.0.0-alpha+B001",
+            "1.0.0",
+            "1.0.0+B001",
+            "1.0.3-alpha",
+            "1.0.3-alpha+B001",
+            "1.0.3",
+            "1.0.3+B001",
+            "1.2.0-alpha",
+            "1.2.0-alpha+B001",
+            "1.2.0+B001",
+            "1.2.0",
+            "1.2.3-alpha",
+            "1.2.3-alpha+B001",
+            "1.2.3",
+            "1.2.3+B001"
+        ].map { Version($0)! }
+        for (index, less) in versions.enumerated() {
             let range = (index + 1)..<(versions.count)
             for greater in versions[range] {
                 XCTAssert(less <= greater)
@@ -93,9 +94,9 @@ class VersionTests: XCTestCase {
     }
     
     func testComparableForCanonicalization() {
-        let major = Version("1-alpha")
-        let majorMinor = Version("1.0-alpha")
-        let majorMinorPatch = Version("1.0.0-alpha")
+        let major = Version("1-alpha")!
+        let majorMinor = Version("1.0-alpha")!
+        let majorMinorPatch = Version("1.0.0-alpha")!
         
         XCTAssertTrue(major == majorMinorPatch)
         XCTAssertTrue(major == majorMinor)
@@ -131,17 +132,17 @@ class VersionTests: XCTestCase {
     }
     
     func testBundleVersion() {
-        let mainBundle = NSBundle(forClass: VersionTests.self)
-        let path = mainBundle.pathForResource("Test", ofType: "bundle")
-        let testBundle = NSBundle(path: path!)!
+        let mainBundle = Bundle(for: VersionTests.self)
+        let path = mainBundle.path(forResource: "Test", ofType: "bundle")
+        let testBundle = Bundle(path: path!)!
         XCTAssertEqual(testBundle.shortVersion!, Version(major: 1, minor: 2, patch: 3))
         XCTAssertEqual(testBundle.version!,      version)
     }
 
-    @available(OSX, introduced=10.10)
-    @available(iOS, introduced=8.0)
+    @available(OSX, introduced: 10.10)
+    @available(iOS, introduced: 8.0)
     func testProcessInfoVersion() {
-        let processVersion : Version = NSProcessInfo.processInfo().operationSystemVersion
+        let processVersion : Version = ProcessInfo.processInfo.operationSystemVersion
       #if os(iOS)
         XCTAssert(processVersion > "7.0.0")
       #elseif os(OSX)

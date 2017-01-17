@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		712D32A719BD06570093BAD7 /* Version.h in Headers */ = {isa = PBXBuildFile; fileRef = 712D32A619BD06570093BAD7 /* Version.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		712D32B119BD06570093BAD7 /* VersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D32B019BD06570093BAD7 /* VersionTests.swift */; };
 		712D32BB19BD06620093BAD7 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D32BA19BD06620093BAD7 /* Version.swift */; };
 		712D32BD19BD148C0093BAD7 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D32BC19BD148C0093BAD7 /* Regex.swift */; };
 		71B5631719D5CE28009B2C0D /* Test.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71B5631619D5CE28009B2C0D /* Test.bundle */; };
+		79811F8A1E2E368100DD9994 /* VersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D32B019BD06570093BAD7 /* VersionTests.swift */; };
+		79811F8B1E2E368700DD9994 /* VersionParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48EFFF91B77D949002452BA /* VersionParserTests.swift */; };
 		A48EFFF81B77A5BD002452BA /* VersionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48EFFF71B77A5BD002452BA /* VersionParser.swift */; };
-		A48EFFFA1B77D949002452BA /* VersionParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48EFFF91B77D949002452BA /* VersionParserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,11 +193,11 @@
 				TargetAttributes = {
 					712D32A019BD06570093BAD7 = {
 						CreatedOnToolsVersion = 6.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 					};
 					712D32AB19BD06570093BAD7 = {
 						CreatedOnToolsVersion = 6.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -252,8 +252,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				712D32B119BD06570093BAD7 /* VersionTests.swift in Sources */,
-				A48EFFFA1B77D949002452BA /* VersionParserTests.swift in Sources */,
+				79811F8A1E2E368100DD9994 /* VersionTests.swift in Sources */,
+				79811F8B1E2E368700DD9994 /* VersionParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +377,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -397,7 +397,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mariusrackwitz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -413,7 +413,7 @@
 				INFOPLIST_FILE = VersionTests/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mariusrackwitz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -425,7 +425,7 @@
 				INFOPLIST_FILE = VersionTests/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.mariusrackwitz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
